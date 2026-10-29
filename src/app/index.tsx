@@ -7,8 +7,10 @@ import { useForm } from "react-hook-form";
 import {
   KeyboardAvoidingView,
   Platform,
+  Pressable,
   ScrollView,
   StyleSheet,
+  Text,
 } from "react-native";
 
 export default function SignUpScreen() {
@@ -90,6 +92,14 @@ export default function SignUpScreen() {
           secureTextEntry
           autoCapitalize="none"
         />
+
+        <Pressable
+          onPress={() => handleSubmit(onSubmit)()}
+          disabled={disabled}
+          style={[styles.button, disabled && styles.buttonDisabled]}
+        >
+          <Text style={styles.buttonText}>Sign Up</Text>
+        </Pressable>
       </ScrollView>
     </KeyboardAvoidingView>
   );
