@@ -25,11 +25,11 @@ export const signUpSchema = z
       .regex(/[A-Z]/, "Password must have an uppercase letter")
       .regex(/[a-z]/, "Password must have a lowercase letter")
       .regex(/\d/, "Password must have a numebr"),
-    confrimPassword: z.string().min(1, "Password confirmation is required"),
+    confirmPassword: z.string().min(1, "Password confirmation is required"),
   })
-  .refine((data) => data.password === data.confrimPassword, {
+  .refine((data) => data.password === data.confirmPassword, {
     message: "Password and Confirm Password must match",
-    path: ["confrimPassword"],
+    path: ["confirmPassword"],
   });
 
 export type SignUpFormData = z.infer<typeof signUpSchema>;
