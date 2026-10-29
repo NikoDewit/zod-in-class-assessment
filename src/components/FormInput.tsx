@@ -47,6 +47,7 @@ export function FormInput<T extends FieldValues>({
               error && styles.error,
             ]}
           />
+          {error && <Text style={styles.errorText}>{error.message}</Text>}
         </View>
       )}
     />
